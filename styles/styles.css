@@ -8,3 +8,10 @@ body {
 .st-emotion-cache-17lntkn .eczjsme5{
 	margin-top: 20rem;
 }
+.navbar {
+    background-color: #0056b3 !important;
+}
+
+.nav-item {
+    margin-right: 15px; /* Adjust spacing between nav items */
+}

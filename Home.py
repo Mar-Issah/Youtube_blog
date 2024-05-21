@@ -5,6 +5,11 @@ def main():
     load_dotenv()
     st.set_page_config(page_title="Youtube Blog", page_icon='🎥🔴', layout="centered")
 
+    with st.sidebar:
+        logout = st.button("Logout 🔓")
+
+    if logout:
+        st.switch_page("3_Signin_🔑.py")
     # Apply styles
     with open('./styles/styles.css') as file:
         style = file.read()
@@ -20,3 +25,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
