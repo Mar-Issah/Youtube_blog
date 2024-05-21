@@ -3,3 +3,6 @@ langchain
 streamlit
 youtube-transcript-api
 python-dotenv
+pyjwt
+Flask-JWT-Extended
+
