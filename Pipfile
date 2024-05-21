@@ -8,6 +8,7 @@ langchain-openai = "*"
 langchain = "*"
 streamlit = "*"
 youtube-transcript-api = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
