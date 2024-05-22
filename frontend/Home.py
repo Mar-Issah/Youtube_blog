@@ -6,9 +6,11 @@ def main():
     load_dotenv()
     st.set_page_config(page_title="Youtube Blog", page_icon='🎥🔴', layout="centered")
 
-    st.sidebar.link_button("Logout 🔓", os.getenv("URL"))
-    st.sidebar.link_button("Signup 🔓 ", "./signup.py")
-    st.sidebar.link_button("Signin 🔑", "./signin.py")
+    st.sidebar.markdown("<div style='margin-top: 20rem;'></div>", unsafe_allow_html=True)
+    if st.sidebar.button("Logout 🔓"):
+        st.switch_page("Home.py")
+
+
 
     # Apply styles
     # with open('./styles/styles.css') as file:

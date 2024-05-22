@@ -1,6 +1,7 @@
 from flask import request, jsonify
 from .models import User
 from . import app, db
+from flask_jwt_extended import create_access_token
 
 @app.route('/', methods=['GET'])
 def sign():
@@ -46,6 +47,7 @@ def signin():
     user = User.query.filter_by(email=email).first()
 
     if user and user.check_password(password):
-        return jsonify({"message": "Login successful", "username": user.username}), 200
+        access_token = create_access_token(identity=user.id)
+        return jsonify({"message": "Login successful", "access_token": access_token}), 200
     else:
         return jsonify({"error": "Invalid email or password"}), 401
