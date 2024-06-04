@@ -1,6 +1,8 @@
 # AI Agent
 
-Python | Youtune | Streamlit| LangChain | OpenAI | Hugging Face.
+Ask questions about world population, Africa. You can also save the answers in a .txt file.
+
+Python | Streamlit| LlamaIndex |
 
 ![Repo size](https://img.shields.io/github/repo-size/Mar-Issah/llamaIndex_agent)
 ![Repo License](https://img.shields.io/github/license/Mar-Issah/llamaIndex_agent.svg)
