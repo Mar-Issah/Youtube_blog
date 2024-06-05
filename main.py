@@ -18,22 +18,17 @@ def main():
     # if st.sidebar.button("Logout 🔓"):
     #     st.switch_page("Home.py")
 
-    st.markdown("<h3 style='text-align: center;'>Welcome to the AI-powered Youtube Blog Generator</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Welcome to the AI-Agent</h3>", unsafe_allow_html=True)
 
     with st.form("my_form"):
-        st.write("To generate your blog post, simply enter the YouTube link below. Our form will extract the necessary details from the video to create a draft for your blog post. ")
-        st.text_input("Enter YoutubeLink",
-        key="link")
-        st.form_submit_button('Generate', type='primary')
+        st.write("This AI Agent is a versatile Python application designed to efficiently handle queries and lookout for relevant information from diverse data sources, including CSV files and PDF documents.")
+        query = st.text_input("Enter Query")
+        submit = st.form_submit_button('Generate', type='primary')
 
-    #df = pd.read_csv('./data/population2023.csv')
+    if submit:
+        response = handle_csv('./data/population2023.csv', query)
+        st.write(response)
 
-    # query specifically for csv file takes the df as param
-    #now that we have the query_engine we can nor run our query
-    #query_engine = PandasQueryEngine(df=df, verbose=True)
-
-    response = handle_csv('./data/population2023.csv')
-    st.write(response)
 
 if __name__ == '__main__':
     main()
