@@ -1,8 +1,6 @@
-langchain-openai
-langchain
 streamlit
-youtube-transcript-api
+pypdf
+llama-index
 python-dotenv
-pyjwt
-Flask-JWT-Extended
+pandas
 
