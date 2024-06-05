@@ -9,6 +9,7 @@ def handle_csv(file_path, query):
 	# query specifically for csv file takes the df as param
 	# now that we have the query_engine we can nor run our query
 	# pass in the variables to be injected by the prompt template
+	# The agent uses the PandasQueryEngine as a tool to query structured csv data and get use the human readble answer
 	query_engine = PandasQueryEngine(df=df, instruction_str= instruction_str, verbose=True)
 	query_engine.update_prompts({"pandas_prompt": new_prompt})
 	response = query_engine.query(query)
