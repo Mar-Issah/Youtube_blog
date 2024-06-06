@@ -1,6 +1,6 @@
 import streamlit as st
 from dotenv import load_dotenv
-from population_engine import handle_csv
+from population_engine import agent
 
 def main():
     load_dotenv()
@@ -14,7 +14,7 @@ def main():
         submit = st.form_submit_button('Generate', type='primary')
 
     if submit:
-        response = handle_csv('./data/population2023.csv', query)
+        response = agent.query(query)
         st.write(response)
 
 
