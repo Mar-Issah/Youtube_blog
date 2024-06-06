@@ -1,8 +1,8 @@
 import pandas as pd
 from prompts import new_prompt, instruction_str
 from llama_index.experimental.query_engine import PandasQueryEngine
-from llama_index.tools import QueryEngineTool, ToolMetadata
-from llama_index import ReActAgent
+from llama_index.core.tools import QueryEngineTool, ToolMetadata
+from llama_index.core.agent import ReActAgent
 from llama_index.llms import OpenAI
 from note_engine import note_engine
 from prompts import context
@@ -17,7 +17,7 @@ def population_engine(file_path):
 	return query_engine
 
 
-# define the tools
+# define all the tools
 tools = [
 	note_engine,
 	QueryEngineTool.from_defaults(query_engine = population_engine('./data/population2023.csv'), metadata = ToolMetadata(name = "Population Query Engine", description = "Query Engine for World Population", type = "query_engine")),
@@ -26,5 +26,5 @@ tools = [
 # Use an llm for reasoning and evaluation
 llm = OpenAI(model= 'gpt-3.5-turbo')
 agent = ReActAgent.from_tools(
-	llm=llm, tools=tools, verbose=True, context = context
+	llm=llm, tools=tools,  context = context, sources=[], verbose=True,
 )
