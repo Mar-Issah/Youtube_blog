@@ -1,6 +1,6 @@
 import streamlit as st
 from dotenv import load_dotenv
-from population_engine import agent
+#from population_engine import agent
 
 def main():
     load_dotenv()
@@ -14,8 +14,8 @@ def main():
         submit = st.form_submit_button('Generate', type='primary')
 
     if submit:
-        response = agent.query(query)
-        st.write(response)
+        # response = agent.query(query)
+        st.write("response")
 
 
 if __name__ == '__main__':

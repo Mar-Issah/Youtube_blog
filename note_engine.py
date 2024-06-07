@@ -1,11 +1,11 @@
 # docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/?h=functiontool#functiontool
-from llama_index.tools import FunctionTool
+from llama_index.core.tools import FunctionTool
 import os
 from datetime import datetime
 
 note_path = os.path.join("data", "notes.txt")
 
-def note_engine(note):
+def handle_note(note):
 	if not os.path.exists(note_path):
 		open(note_path, 'w')
 
@@ -18,7 +18,7 @@ def note_engine(note):
 	return "Saved successfully"
 
 
-# now that we have the tool we can wrap it with the FunctionTool from llama
-tool = FunctionTool.from_defaults(fn = note_engine,
-								name ="note saver",
+# now that we have the tool we can wrap it with the FunctionTool from llama and export it
+note_engine = FunctionTool.from_defaults(fn = handle_note,
+								name ="note_saver",
 								description = "saves notes to a txt file")
