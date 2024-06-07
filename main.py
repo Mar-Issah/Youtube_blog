@@ -35,5 +35,6 @@ llm = OpenAI(model= 'gpt-3.5-turbo')
 agent = ReActAgent.from_tools(
 	tools=tools, llm=llm, context = context, verbose=True,
 )
-import streamlit as st
-res = agent.query("What is the population of Ghana? Can you save the answer in a .txt file?")
+while (prompt := input("Ask me anything: ")) != "exit":
+	respnse = agent.query(prompt)
+	print(respnse)
