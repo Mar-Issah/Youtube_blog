@@ -8,7 +8,6 @@ from note_engine import note_engine
 from prompts import context
 
 #https://docs.llamaindex.ai/en/stable/examples/query_engine/pandas_query_engine/
-
 file_path = './data/population2023.csv'
 df = pd.read_csv(file_path)
 # The agent uses the PandasQueryEngine as a tool to query structured csv data and get use the human readble answers
@@ -18,24 +17,23 @@ population_query_engine.update_prompts({"pandas_prompt": new_prompt})
 
 # Create instances of the tools
 population_query_engine_tool = QueryEngineTool(
-    query_engine=population_query_engine,
-    metadata=ToolMetadata(
-        name="population_query",
-        description="This gives information of the world population and demographics"
-    )
+	query_engine=population_query_engine,
+	metadata=ToolMetadata(
+		name="population_query",
+		description="This gives information of the world population and demographics"
+	)
 )
 
 # Define all the tools
 tools = [
-    note_engine,
-    population_query_engine_tool
+	note_engine,
+	population_query_engine_tool
 ]
 
 # Use an llm for reasoning and evaluation
 llm = OpenAI(model= 'gpt-3.5-turbo')
 agent = ReActAgent.from_tools(
-	 tools=tools, llm=llm, context = context, verbose=True,
+	tools=tools, llm=llm, context = context, verbose=True,
 )
-
-response = agent.query("What is the pouplation of Canada?")
-print(response)
+import streamlit as st
+res = agent.query("What is the population of Ghana? Can you save the answer in a .txt file?")
