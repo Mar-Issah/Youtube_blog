@@ -14,7 +14,7 @@ def handle_note(note):
 	formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
 
 	with open(note_path, 'a') as f:
-		f.writelines([formatted_datetime + "\n" + note + "\n"])
+		f.writelines(["NEW NOTE ON:" + formatted_datetime + "\n" + note + "\n"])
 	return "Saved successfully"
 
 

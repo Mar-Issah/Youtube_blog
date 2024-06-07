@@ -35,6 +35,7 @@ llm = OpenAI(model= 'gpt-3.5-turbo')
 agent = ReActAgent.from_tools(
 	tools=tools, llm=llm, context = context, verbose=True,
 )
-while (prompt := input("Ask me anything: ")) != "exit":
+
+while (prompt := input("Ask me anything (type exit to quit): ")) != "exit":
 	respnse = agent.query(prompt)
 	print(respnse)
