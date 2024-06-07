@@ -16,7 +16,7 @@ This AI Agent is a versatile Python application designed to efficiently handle q
 - Create a virtual environment.
 - Run the following command to install the required dependencies: `pip install --r requirements.txt`
 - Set up API keys in the .env file.
-- Run the application:`streamlit run main.py`
+- Run the application:`python run main.py`
 
 ## Contributing
 I welcome all contributions!

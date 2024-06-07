@@ -1,4 +1,3 @@
-streamlit
 pypdf
 llama-index
 python-dotenv
