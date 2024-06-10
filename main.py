@@ -5,6 +5,7 @@ from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent import ReActAgent
 from llama_index.llms.openai import OpenAI
 from note_engine import note_engine
+from pdf_engine import africa_query_engine
 from prompts import context
 
 #https://docs.llamaindex.ai/en/stable/examples/query_engine/pandas_query_engine/
@@ -24,10 +25,20 @@ population_query_engine_tool = QueryEngineTool(
 	)
 )
 
+# Create africa_query_engine_tool
+africa_query_engine_tool = QueryEngineTool(
+	query_engine=africa_query_engine,
+	metadata=ToolMetadata(
+		name="africa_query",
+		description="This gives information of Africa"
+	)
+)
+
 # Define all the tools
 tools = [
 	note_engine,
-	population_query_engine_tool
+	population_query_engine_tool,
+	africa_query_engine_tool
 ]
 
 # Use an llm for reasoning and evaluation

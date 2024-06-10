@@ -16,6 +16,9 @@ def get_index(docs, index_path):
 		index = load_index_from_storage(StorageContext.from_defaults(persist_dir	=index_path))
 	return index
 
+
 loader = PDFReader()
 docs = loader.load_data(file=("./data/Africa.pdf"))
+search_index = get_index(docs, "./data/index")
+africa_query_engine = search_index.as_query_engine()
 print(docs)
