@@ -47,6 +47,6 @@ agent = ReActAgent.from_tools(
 	tools=tools, llm=llm, context = context, verbose=True,
 )
 
-while (prompt := input("Ask me anything (type exit to quit): ")) != "exit":
+while (prompt := input("Ask me anything (type 'exit' to quit): ")) != "exit":
 	respnse = agent.query(prompt)
 	print(respnse)

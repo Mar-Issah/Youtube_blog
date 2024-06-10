@@ -21,4 +21,4 @@ def handle_note(note):
 # now that we have the tool we can wrap it with the FunctionTool from llama and export it
 note_engine = FunctionTool.from_defaults(fn = handle_note,
 								name ="note_saver",
-								description = "saves notes to a txt file")
+								description = "This tool can save a note to a text or .txt file")
